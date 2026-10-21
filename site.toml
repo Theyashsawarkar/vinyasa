@@ -1,0 +1,8 @@
+# The project website (docs/, GitHub Pages): built by scripts/build-site.py
+name = "vinyasa"
+sanskrit = "विन्यास"
+meaning = "arrangement"
+tagline = "Every setting of the desktop, in one place: themes for every tool, fonts, wallpaper, windows."
+color = "teal"
+kind = "settings"
+logo = "assets/logo.svg"

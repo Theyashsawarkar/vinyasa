@@ -1,0 +1,11 @@
+[Desktop Entry]
+Type=Application
+Name=Settings
+GenericName=Settings
+Comment=Themes, fonts, wallpaper, windows and every tool's look
+Exec=vinyasa
+Icon=preferences-system
+Terminal=false
+Categories=Settings;DesktopSettings;GTK;
+Keywords=theme;colour;color;wallpaper;fonts;settings;preferences;
+StartupWMClass=dev.vayu.Vinyasa

@@ -1,0 +1,36 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: GTK 4 and a virtual display
+        run: sudo apt-get update -q && sudo apt-get install -yq python3-gi gir1.2-gtk-4.0 xvfb shellcheck
+      - name: varna (the theme engine vinyasa drives), next to this checkout
+        run: git clone -q --depth 1 https://github.com/Theyashsawarkar/varna ../varna
+      - name: Lint
+        run: pipx run ruff check .
+      - name: Compile
+        run: python3 -m py_compile bin/vinyasa vinyasa/*.py
+      - name: ShellCheck
+        run: shellcheck -S warning install.sh
+      - name: Version and changelog agree
+        run: |
+          v=$(sed -n 's/^VERSION = "\(.*\)"/\1/p' vinyasa/__init__.py)
+          grep -q "^## v$v " CHANGELOG.md || { echo "CHANGELOG.md has no entry for v$v"; exit 1; }
+      - name: Tests, including the window (every page builds, the editor saves a theme)
+        run: xvfb-run -a /usr/bin/python3 -m unittest discover -s tests -v
+      - name: Every key is documented
+        run: |
+          grep -o '^# keybind: Vinyasa/settings | [^|]*' vinyasa/app.py | sed 's/.*| //; s/ *$//' | while read -r k; do
+            first=$(printf '%s' "$k" | awk '{print $1}')
+            grep -qF "\`$first\`" README.md || { echo "README doesn't document $first"; exit 1; }
+          done
+      - name: Website is up to date
+        run: python3 scripts/build-site.py --check
