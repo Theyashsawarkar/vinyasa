@@ -214,7 +214,14 @@ class Window(Gtk.ApplicationWindow):
             self.toast(str(e), "err")
             return
         defs = "\n".join(f"@define-color {k} {v};" for k, v in ctx.items() if isinstance(v, str) and v.startswith("#"))
-        css = defs + CSS.replace("@@OPACITY@@", f"{max(0.75, float(ctx['opacity'])):.2f}")
+        # The panels' glass (ui.glass, varna 0.1.9), so this window looks like
+        # Vyom's panels and nāda: it used ui.opacity, the terminal's (0.85).
+        # Never under 0.4: settings are dense text.
+        try:
+            glass = max(0.4, min(1.0, float(ctx.get("glass", ctx.get("opacity", 0.55)))))
+        except (TypeError, ValueError):
+            glass = 0.55
+        css = defs + CSS.replace("@@OPACITY@@", f"{glass:.2f}")
         if getattr(self.app, "provider", None) is None:
             self.app.provider = Gtk.CssProvider()
             Gtk.StyleContext.add_provider_for_display(Gdk.Display.get_default(), self.app.provider,

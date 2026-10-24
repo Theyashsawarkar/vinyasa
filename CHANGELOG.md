@@ -2,6 +2,14 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `vinyasa/__init__.py`.
 
+## v0.1.1 -- 2026-10-24
+
+- **The same glass as Vyom's panels.** The window's background is varna's
+  `ui.glass` (varna 0.1.9), shared by Vyom, nāda and the notifications, so
+  it looks like the rest of the desktop. It used `ui.opacity` (0.85, the
+  terminal's), which made it a nearly solid slab next to them. Never under
+  0.4, so the settings stay easy to read.
+
 ## v0.1.0 -- 2026-10-21
 
 The first release: Vayu's settings app, starting with how it looks.
