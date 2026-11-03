@@ -6,6 +6,15 @@
   </picture>
 </p>
 
+<!-- identity -->
+<p align="center">
+  <b>बुद्धियुक्तो जहातीह उभे सुकृतदुष्कृते ।<br>
+  तस्माद्योगाय युज्यस्व योगः कर्मसु कौशलम् ॥</b><br>
+  <i>So give yourself to yoga: yoga is skill in action.</i><br>
+  <sub>Bhagavad Gītā 2.50</sub>
+</p>
+<!-- /identity -->
+
 <p align="center">
   <b>Every setting of the desktop, in one place.</b><br>
   Vayu's settings app: pick a theme and the whole desktop follows, make your own, set fonts, wallpaper and window gaps, and give any tool its own theme. Keyboard first.

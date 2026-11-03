@@ -6,3 +6,6 @@ tagline = "Every setting of the desktop, in one place: themes for every tool, fo
 color = "teal"
 kind = "settings"
 logo = "assets/logo.svg"
+shloka = "बुद्धियुक्तो जहातीह उभे सुकृतदुष्कृते ।\nतस्माद्योगाय युज्यस्व योगः कर्मसु कौशलम् ॥"
+shloka_meaning = "So give yourself to yoga: yoga is skill in action."
+shloka_source = "Bhagavad Gītā 2.50"
