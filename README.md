@@ -90,16 +90,38 @@ then `git clone https://github.com/Theyashsawarkar/vinyasa ~/.local/share/vinyas
 
 ## Keys
 
+Vim keys, modal, the grammar every Vayu tool shares. Settings open in
+**normal** mode: keys are commands and typing changes nothing, so a stray
+key never edits a setting. `i` edits the focused text or number field
+(**insert** mode, `Esc` back); `/` types in the search. `Space` is the
+leader: press it and a strip shows what can follow (`Space t` pages,
+`Space a` add, `Space d` delete, `Space o` open, `Space u` toggles,
+`Space Space` every action and page). `?` shows every key.
+
 | Key | Does |
 | --- | --- |
-| `j` / `k` | Next / previous page (in the sidebar), down / up a row of cards or the next / previous control (in a page) |
-| `h` / `l` | The sidebar / the page |
-| `gg` / `G` | First / last page |
-| `/` | Search every setting (theme and tool names too); `Enter` opens the first match |
-| `Enter` / `Space` | Open the page, pick the card, change the setting |
-| `Tab`, arrows | Move between controls as usual |
-| `?` | All keys |
-| `q` / `Esc` | Quit (`Esc` in the search box clears it) |
+| `j` / `k` | Next / previous page (sidebar), or control (page); counts work: `3j` |
+| `h` / `l` | Turn the focused value down / up: a slider, a number, a menu, a switch, Dark/Light, a grid of cards (`5l`: five steps); else the sidebar / the page |
+| `H` / `L` | Previous / next page |
+| `gg` / `G` | First / last page (sidebar) or control (page) |
+| `Ctrl+d` / `Ctrl+u` | Half a page down / up |
+| `Enter` | Activate the focused control (flip a switch, open a menu, pick a card), or open the page |
+| `i` | Edit the focused text or number field (insert mode; `Esc` back) |
+| `/` | Search every setting (theme and tool names too); `Enter` opens the first match, `Ctrl+j` / `Ctrl+k` move, `Esc` clears |
+| `r` | Reload every page from varna (`Space r`) |
+| `Space t t` `e` `f` `w` `i` `o` `a` | Theme, Theme editor, Fonts, Wallpaper, Windows & gaps, Tools, About |
+| `Space a a` | A theme of your own (the editor, typing its name) |
+| `Space e e` | Edit a theme (the editor) |
+| `Space d d` | Delete the custom theme open in the editor (asks: `y` says yes) |
+| `Space o e` / `Space o f` | Open varna's config file / your themes folder |
+| `Space u f` | Toggle fullscreen |
+| `Space Space` | The palette: every action and page, filtered as you type |
+| `?` | Every key (`Space ?`) |
+| `q` / `Esc` | Quit (`Ctrl+q` and `Space q` too) |
+
+Moved in this version: `Space` no longer presses the focused control (it's
+the leader; `Enter` does), and `h` / `l` change the focused value instead
+of only jumping between the sidebar and the page.
 
 ## How it works
 

@@ -59,6 +59,11 @@ class Gui(unittest.TestCase):
         editor.save(new=True)
         self.assertIn("test-dusk", core.theme_paths())
         self.assertTrue(core.load_theme("test-dusk")["user"])
+        # the Delete button asks first (only y says yes): Enter on it alone deletes nothing
+        editor.del_btn.emit("clicked")
+        self.assertIsNotNone(win.confirming)
+        self.assertIn("test-dusk", core.theme_paths())
+        win.confirming = None
         # search: theme names and tool names find their pages
         theme_page = next(p for p in win.pages if p.title == "Theme")
         self.assertTrue(win.matches(theme_page, "nord"))

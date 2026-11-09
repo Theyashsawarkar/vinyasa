@@ -198,7 +198,9 @@ class EditorPage(Page):
         self.save_btn.connect("clicked", lambda _b: self.save(new=False))
         self.del_btn = Gtk.Button(label="Delete")
         self.del_btn.add_css_class("destructive")
-        self.del_btn.connect("clicked", lambda _b: self.delete())
+        # Deleting asks first, and only y says yes (the window's question), so
+        # Enter on a focused Delete button can't throw a theme away.
+        self.del_btn.connect("clicked", lambda _b: self.app.ask(f"Delete {self.source['meta']['name']}?", self.delete))
         for w in (Gtk.Label(label="Start from"), self.pick, self.name, self.variant, save_new, self.save_btn, self.del_btn):
             top.append(w)
         self.add(top)

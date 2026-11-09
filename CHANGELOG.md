@@ -2,10 +2,34 @@
 
 Newest first. Releases are tags (`vX.Y.Z`) with `VERSION` in `vinyasa/__init__.py`.
 
-## Unreleased
+## v0.2.0 -- 2026-11-09
 
 - Every corner is rounded: the website's callouts.
 - A logo and a shloka at the top of the README and the website: every Vayu tool has them now.
+- Vim keys, modal, the Space grammar every Vayu tool shares. Settings open
+  in **normal** mode: typing changes nothing (a form opens read-only), and a
+  focused number or text field only takes typing after `i` (or a click);
+  `Esc` goes back. The mode shows under the app's name.
+- `h` / `l` turn the focused value down / up with counts (`5l`): sliders,
+  number fields, menus, switches, the Dark/Light pair and the grids of cards.
+  No arrow keys needed.
+- `H` / `L` previous / next page; `gg` / `G` and `Ctrl+d` / `Ctrl+u` inside
+  a page too; `r` reloads every page from varna.
+- `Space` is the leader (it no longer presses the focused button: `Enter`
+  does), with a which-key strip after 0.3 s: `Space t` pages, `Space a a` a
+  theme of your own, `Space e e` the editor, `Space d d` deletes your theme
+  (asks; only `y` says yes), `Space o e` / `o f` open varna's config / your
+  themes folder, `Space u f` fullscreen, `Space Space` a palette of every
+  action and page.
+- The setting row the keys act on is marked like the sidebar's page.
+- `?` lists every key from the same table; the keys are data (`BINDS` in
+  `vinyasa/app.py`) resolved by Vyom's keys module (vendored as
+  `vinyasa/keys.py`), and `scripts/keybinds.py` writes the `# keybind:` lines
+  (tests check them).
+- Fixed: the theme editor's Delete button deleted at once, so `Enter` on it
+  threw a theme away; it asks now, like `Space d d` (only `y` says yes).
+  CI's "every key is in the README" check matched no lines after the
+  annotations gained `:normal`, so it passed without checking.
 
 ## v0.1.1 -- 2026-10-24
 

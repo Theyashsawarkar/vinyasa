@@ -10,8 +10,10 @@ apply); it must work without Vayu (needs varna).
 - **Test with a throwaway HOME** (`HOME=$(mktemp -d) VARNA_HOME=~/personal/varna
   bin/vinyasa`) in a headless sway, never against the user's session; varna
   won't reload the desktop from a throwaway HOME.
-- Keys: `# keybind: Vinyasa/settings | <keys> | <Verb> <object>` lines in app.py,
-  `KEYS` (the ? overlay) and the README must agree; in Vayu run
+- Keys are data: `BINDS` in app.py (the Space grammar; Vyom's keys module
+  vendored as `vinyasa/keys.py`, never edited here). After changing a key run
+  `scripts/keybinds.py` (writes the `# keybind:` lines; the ? overlay is built
+  from BINDS), update the README table, and in Vayu run
   `~/.local/bin/keybind-search.py --check`.
 - Slow work in threads, UI updates through GLib.idle_add.
 - `ruff check .` and `python -m unittest discover -s tests` must pass.

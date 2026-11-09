@@ -1,6 +1,8 @@
 # Lint: `ruff check .` (CI runs it). Real bugs and dead code, not style taste.
 line-length = 160
 target-version = "py311"
+# vinyasa/keys.py is vendored from Vyom (scripts/vendor-keys.sh there): linted in Vyom.
+extend-exclude = ["vinyasa/keys.py"]
 
 [lint]
 select = ["E", "F", "W", "B", "UP", "PLE", "RUF100"]

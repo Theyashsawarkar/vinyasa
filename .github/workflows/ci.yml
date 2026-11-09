@@ -28,9 +28,13 @@ jobs:
         run: xvfb-run -a /usr/bin/python3 -m unittest discover -s tests -v
       - name: Every key is documented
         run: |
-          grep -o '^# keybind: Vinyasa/settings | [^|]*' vinyasa/app.py | sed 's/.*| //; s/ *$//' | while read -r k; do
-            first=$(printf '%s' "$k" | awk '{print $1}')
-            grep -qF "\`$first\`" README.md || { echo "README doesn't document $first"; exit 1; }
+          keys=$(grep -o '^# keybind: Vinyasa/settings:normal | [^|]*' vinyasa/app.py | sed 's/.*| //; s/ *$//')
+          [ -n "$keys" ] || { echo "no keybind lines found"; exit 1; }
+          pages=$(grep -F '| `Space t t`' README.md)
+          printf '%s\n' "$keys" | while read -r k; do
+            grep -qF "\`$k\`" README.md || grep -qF "\`${k// /}\`" README.md ||
+              { [ "${k% ?}" = "Space t" ] && printf '%s' "$pages" | grep -qF "\`${k##* }\`"; } ||
+              { echo "README doesn't document $k"; exit 1; }
           done
       - name: Website is up to date
         run: python3 scripts/build-site.py --check
