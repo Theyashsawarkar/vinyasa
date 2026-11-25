@@ -149,6 +149,7 @@ flowboxchild:focus .theme-card, flowboxchild:focus-visible .theme-card { border-
 flowboxchild:focus .thumb { outline: 2px solid alpha(@accent, 0.55); }
 row:focus { outline: none; }
 .card-title { font-weight: 700; }
+flowboxchild:selected .card-title, flowboxchild:selected .card-sub { color: @text; }
 .card-sub { color: @overlay1; font-size: 11px; }
 .thumb { border-radius: 14px; }
 flowboxchild:selected .thumb { outline: 2px solid @accent; }
@@ -157,7 +158,7 @@ button.swatch:hover { background-color: alpha(@text, 0.08); }
 button.pill { border-radius: 999px; }
 button.suggested { background-color: @accent; color: @crust; font-weight: 700; }
 button.destructive { color: @red; }
-.segmented button { border-radius: 0; }
+.segmented button { border-radius: 999px; }
 .segmented button:first-child { border-radius: 12px 0 0 9px; }
 .segmented button:last-child { border-radius: 0 9px 9px 0; }
 .segmented button:checked { background-color: @accent; color: @crust; }
