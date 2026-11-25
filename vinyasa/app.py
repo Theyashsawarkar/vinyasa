@@ -185,7 +185,7 @@ scale highlight { background-color: @accent; }
 .palette row { border-radius: 14px; padding: 6px 10px; }
 .palette row:selected { background-color: alpha(@accent, 0.16); }
 /* Where the keyboard is in a page: the setting's row, marked like the sidebar's page. */
-.setting.cursor { background-color: alpha(@accent, 0.10); box-shadow: inset 3px 0 0 @accent; }
+.setting.cursor { background-color: alpha(@accent, 0.12); box-shadow: inset 0 0 0 1px alpha(@accent, 0.22); }
 .confirm { background-color: alpha(@crust, 0.96); border-radius: 22px; padding: 16px 22px; border: 1px solid @red; }
 """
 
