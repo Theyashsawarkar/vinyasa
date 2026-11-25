@@ -126,31 +126,31 @@ CSS = """
 window.vinyasa { background-color: alpha(@base, @@OPACITY@@); color: @text; }
 .sidebar { background-color: alpha(@mantle, 0.6); border-right: 1px solid alpha(@surface1, 0.6); }
 .sidebar list { background: transparent; }
-.sidebar row { border-radius: 10px; margin: 1px 8px; padding: 6px 10px; color: @subtext0; }
-.sidebar row:selected { background-color: alpha(@accent, 0.16); color: @text; box-shadow: inset 3px 0 0 @accent; }
+.sidebar row { border-radius: 14px; margin: 1px 8px; padding: 6px 10px; color: @subtext0; }
+.sidebar row:selected { background-color: alpha(@accent, 0.15); color: @text; box-shadow: inset 0 0 0 1px alpha(@accent, 0.22); }
 .sidebar row.group { margin-top: 12px; padding: 2px 10px; }
 .group-label { font-family: monospace; font-size: 10px; letter-spacing: 2px; color: @overlay0; font-weight: 700; }
-.icon { min-width: 22px; min-height: 22px; border-radius: 7px; background-color: @accent; color: @crust; font-weight: 800; font-size: 11px; }
+.icon { min-width: 22px; min-height: 22px; border-radius: 10px; background-color: @accent; color: @crust; font-weight: 800; font-size: 11px; }
 .brand { padding: 16px 16px 6px; }
 .brand-name { font-weight: 800; font-size: 16px; }
 .brand-sub { color: @overlay1; font-size: 11px; }
-searchentry { margin: 6px 12px 8px; border-radius: 10px; background-color: alpha(@surface0, 0.8); }
+searchentry { margin: 6px 12px 8px; border-radius: 14px; background-color: alpha(@surface0, 0.8); }
 .page { padding: 26px 32px 40px; }
 .page-title { font-size: 26px; font-weight: 800; letter-spacing: -0.5px; }
 .page-subtitle { color: @overlay1; margin-bottom: 12px; }
 .section { margin-top: 14px; font-family: monospace; font-size: 11px; letter-spacing: 2px; color: @overlay0; font-weight: 700; }
-.setting { background-color: alpha(@mantle, 0.65); border-radius: 12px; padding: 12px 16px; }
+.setting { background-color: alpha(@mantle, 0.65); border-radius: 18px; padding: 12px 16px; }
 .setting-title { font-weight: 600; }
 .setting-subtitle { color: @overlay1; font-size: 12px; }
-.theme-card { background-color: alpha(@mantle, 0.7); border-radius: 14px; padding: 10px; border: 2px solid transparent; }
-flowboxchild { border-radius: 16px; padding: 0; }
+.theme-card { background-color: alpha(@mantle, 0.7); border-radius: 20px; padding: 10px; border: 2px solid transparent; }
+flowboxchild { border-radius: 22px; padding: 0; }
 flowboxchild:selected .theme-card { border-color: @accent; }
 flowboxchild:focus .theme-card, flowboxchild:focus-visible .theme-card { border-color: alpha(@accent, 0.55); background-color: alpha(@accent, 0.08); }
 flowboxchild:focus .thumb { outline: 2px solid alpha(@accent, 0.55); }
 row:focus { outline: none; }
 .card-title { font-weight: 700; }
 .card-sub { color: @overlay1; font-size: 11px; }
-.thumb { border-radius: 10px; }
+.thumb { border-radius: 14px; }
 flowboxchild:selected .thumb { outline: 2px solid @accent; }
 button.swatch { padding: 2px; border-radius: 999px; background: none; box-shadow: none; }
 button.swatch:hover { background-color: alpha(@text, 0.08); }
@@ -158,7 +158,7 @@ button.pill { border-radius: 999px; }
 button.suggested { background-color: @accent; color: @crust; font-weight: 700; }
 button.destructive { color: @red; }
 .segmented button { border-radius: 0; }
-.segmented button:first-child { border-radius: 9px 0 0 9px; }
+.segmented button:first-child { border-radius: 12px 0 0 9px; }
 .segmented button:last-child { border-radius: 0 9px 9px 0; }
 .segmented button:checked { background-color: @accent; color: @crust; }
 switch:checked { background-color: @accent; }
@@ -168,25 +168,25 @@ scale highlight { background-color: @accent; }
 .toast { background-color: alpha(@crust, 0.92); color: @text; border: 1px solid alpha(@accent, 0.6); border-radius: 999px;
          padding: 8px 18px; margin-bottom: 18px; font-weight: 600; }
 .toast.err { border-color: @red; }
-.help { background-color: alpha(@crust, 0.95); border-radius: 18px; padding: 22px 26px; border: 1px solid alpha(@accent, 0.4); }
+.help { background-color: alpha(@crust, 0.95); border-radius: 24px; padding: 22px 26px; border: 1px solid alpha(@accent, 0.4); }
 .help-key { font-family: monospace; color: @accent; font-weight: 700; }
 .help-group { font-family: monospace; font-size: 10px; letter-spacing: 2px; color: @overlay0; font-weight: 700; margin-top: 6px; }
 .vimmode { font-family: monospace; font-size: 10px; letter-spacing: 1px; font-weight: 800; border-radius: 999px;
            padding: 1px 9px; margin-top: 6px; background-color: alpha(@peach, 0.18); color: @peach; }
 .vimmode.insert { background-color: alpha(@sky, 0.18); color: @sky; }
-.which { background-color: alpha(@crust, 0.95); border-radius: 16px; padding: 12px 18px; margin: 0 24px 24px;
+.which { background-color: alpha(@crust, 0.95); border-radius: 22px; padding: 12px 18px; margin: 0 24px 24px;
          border: 1px solid alpha(@accent, 0.4); }
 .which-key { font-family: monospace; color: @peach; font-weight: 800; }
 .which-group { color: @sky; }
 .which-title { font-family: monospace; color: @overlay1; font-size: 11px; }
-.palette { background-color: alpha(@crust, 0.96); border-radius: 18px; padding: 14px; border: 1px solid alpha(@accent, 0.4); }
-.palette entry { border-radius: 10px; }
+.palette { background-color: alpha(@crust, 0.96); border-radius: 24px; padding: 14px; border: 1px solid alpha(@accent, 0.4); }
+.palette entry { border-radius: 14px; }
 .palette list { background: transparent; }
-.palette row { border-radius: 10px; padding: 6px 10px; }
+.palette row { border-radius: 14px; padding: 6px 10px; }
 .palette row:selected { background-color: alpha(@accent, 0.16); }
 /* Where the keyboard is in a page: the setting's row, marked like the sidebar's page. */
 .setting.cursor { background-color: alpha(@accent, 0.10); box-shadow: inset 3px 0 0 @accent; }
-.confirm { background-color: alpha(@crust, 0.96); border-radius: 16px; padding: 16px 22px; border: 1px solid @red; }
+.confirm { background-color: alpha(@crust, 0.96); border-radius: 22px; padding: 16px 22px; border: 1px solid @red; }
 """
 
 
